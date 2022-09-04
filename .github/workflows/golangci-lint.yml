@@ -1,0 +1,22 @@
+name: golangci-lint
+on: [push, pull_request]
+jobs:
+  golangci-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: 1.19
+      - run: export GO111MODULE=on
+      - run: export CGO_ENABLED=0
+      - run: export GOOS=linux
+      - run: go env
+      - name: Run lint on aperta service
+        uses: golangci/golangci-lint-action@v2
+        with:
+          working-directory: aperta
+          args: --timeout 5m0s --out-${NO_FUTURE}format line-number
+      - run: go version ; golangci-lint --version  # Fix the following and remove || true
