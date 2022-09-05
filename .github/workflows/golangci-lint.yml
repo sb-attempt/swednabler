@@ -14,7 +14,6 @@ jobs:
       - run: export CGO_ENABLED=0
       - run: export GOOS=linux
       - run: go env
-      - run: go version ; golangci-lint --version
       - name: Run lint on aperta service
         uses: golangci/golangci-lint-action@v2
         with:
