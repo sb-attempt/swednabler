@@ -19,4 +19,3 @@ jobs:
         with:
           working-directory: aperta
           args: --timeout 5m0s --out-${NO_FUTURE}format line-number
-      - run: go version ; golangci-lint --version  # Fix the following and remove || true
