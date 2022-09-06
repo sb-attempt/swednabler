@@ -5,7 +5,7 @@ import (
 	"github.com/go-kit/kit/endpoint"
 )
 
-// Structs that defines the structure of incoming request and response for both authenticate and authorize requests
+// Structs that defines the structure of incoming request/response for both authenticate/authorize requests
 type authenticateRequest struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
@@ -27,7 +27,8 @@ type authorizeResponse struct {
 
 // authenticateEndpoint: This function accepts the Service and JwtService as input.
 // It checks if the incoming credentials are valid and return a JWT token with a set expiry
-// The adapter to convert method to endpoint.
+// Based on go-kit utility this adapter converts the  method to endpoint and then the transport exposes it.
+// https://github.com/go-kit/kit
 func authenticateEndpoint(svc Service, jwt JwtService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
 		req := request.(authenticateRequest)
