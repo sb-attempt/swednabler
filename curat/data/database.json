@@ -1,0 +1,56 @@
+{
+  "glossary": [
+    {
+      "id": 1,
+      "name": "CBDC"
+    },
+    {
+      "id": 2,
+      "name": "E-krona"
+    },
+    {
+      "id": 3,
+      "name": "ISO20022"
+    },
+    {
+      "id": 4,
+      "name": "KYC"
+    },
+    {
+      "id": 5,
+      "name": "PSD"
+    },
+    {
+      "id": 6,
+      "name": "PIN"
+    },
+    {
+      "id": 7,
+      "name": "PSD2"
+    },
+    {
+      "id": 8,
+      "name": "RIX"
+    },
+    {
+      "id": 9,
+      "name": "SWIFT"
+    },
+    {
+      "id": 10,
+      "name": "Swish"
+    },
+    {
+      "id": 11,
+      "name": "TIPS"
+    },
+    {
+      "id": 12,
+      "name": "Fintech"
+    },
+    {
+      "id": 13,
+      "name": "GDPR"
+    }
+  ]
+}
