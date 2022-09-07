@@ -1,0 +1,82 @@
+{
+  "glossary_simple": [
+    {
+      "id": 1,
+      "name": "CBDC",
+      "full_form": "Central bank digital currency",
+      "description": "Digital money created by central banks. Retail CBDC is intended for the public, while wholesale CBDC is intended for financial institutions"
+    },
+    {
+      "id": 2,
+      "name": "E-krona",
+      "full_form": "Electronic Krona",
+      "description": "A central bank digital currency that may be issued by the Riksbank and that would be available to the public (a so-called retail CBDC). The Riksbank has not taken any decision on issuing an e-krona. See also central bank digital currency."
+    },
+    {
+      "id": 3,
+      "name": "ISO20022",
+      "full_form": "ISO20022",
+      "description": "New standard for payment orders that can help make international payments faster, more efficient and more transparent."
+    },
+    {
+      "id": 4,
+      "name": "KYC",
+      "full_form": "Know your customer",
+      "description": "The statutory requirement for companies to have good knowledge of their customers and their customers’ businesses. The aim is to impede and prevent the exploitation of a business for money laundering or terrorist financing."
+    },
+    {
+      "id": 5,
+      "name": "PSD",
+      "full_form": "Payment Service Directive",
+      "description": "The Payment Service Directive is a European directive that regulates payment services and payment service providers within the EU/EEA. The Payment Service Directive has been replaced by the EU Payment Service Directive 2 (PSD2). See also PSD2."
+    },
+    {
+      "id": 6,
+      "name": "PIN",
+      "full_form": "Personal identification number",
+      "description": "A personal number that is kept secret and that allows the user to identify themselves, for example when making a card purchase."
+    },
+    {
+      "id": 7,
+      "name": "PSD2",
+      "full_form": "EU second Payment Services Directive",
+      "description": "The PSD2 has replaced the PSD (Payment Services Directive). The aim of the Directive is to develop the market for electronic payments and create better conditions for secure and efficient payments. The PSD2 has been implemented into Swedish statutes through amendments to the Payment Services Act. This extended the scope of the law to include so-called third-party payment service providers."
+    },
+    {
+      "id": 8,
+      "name": "RIX",
+      "full_form": "Riksbank’s central payment system",
+      "description": "The Riksbank’s central payment system that processes large-value payments to and from the banks’ accounts with the Riksbank. The Riksbank functions as the banks’ bank for payments in Swedish kronor. In the spring of 2022, an instant payment service will be added (see RIX-INST)."
+    },
+    {
+      "id": 9,
+      "name": "SWIFT",
+      "full_form": "The Society for Worldwide Interbank Financial Telecommunications",
+      "description": "A global network for financial messages that complies with certain standards. Central banks, banks and financial infrastructures use the SWIFT network and its format and standard to execute payments."
+    },
+    {
+      "id": 10,
+      "name": "Swish",
+      "full_form": "Swish is a mobile payment system ",
+      "description": "A payment service that allows users to send money from and receive money to their own bank accounts via their mobile phones. In order to be able to ‘swish’ money to each other, both the payer and the recipient need to be connected to the service, which is provided through their banks."
+    },
+    {
+      "id": 11,
+      "name": "TIPS",
+      "full_form": "Target Instant Payment Settlement",
+      "description": "The Eurosystem’s platform for instant payments that the Riksbank will use to offer instant payments through RIX-INST."
+    },
+    {
+      "id": 12,
+      "name": "Fintech",
+      "full_form": "financial technology companies",
+      "description": " A collective name for innovative financial technology companies. This type of company provides or enables financial services, for example by acting as an intermediary in part of the payment chain and by creating new services. They can also simplify or otherwise improve ways of paying."
+    },
+    {
+      "id": 13,
+      "name": "GDPR",
+      "full_form": "General Data Protection Regulation",
+      "description": "The General Data Protection Regulation (GDPR) is legislation that updated and unified data privacy laws across the European Union (EU). GDPR was approved by the European Parliament on April 14, 2016 and went into effect on May 25, 2018. GDPR replaces the EU Data Protection Directive of 1995."
+    }
+  ]
+}

@@ -15,6 +15,16 @@ build-curat:
 build-simplex:
 	cd simplex; go build -o bin/simplex main.go
 
+build-test-aperta:
+	cd aperta; go test ./...
+
+build-test-curat:
+	cd curat; go test ./...
+
+build-test-simplex:
+	cd simplex; go test ./...
+
+
 build-metrik:
 	cd metrik; go build -o bin/metrik main.go
 

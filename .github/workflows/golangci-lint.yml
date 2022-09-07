@@ -1,14 +1,13 @@
 name: golangci-lint
 on:
   push:
-    push:
-      branches-ignore:
-        - 'master'
-    pull_request:
-      branches:
-        - 'releases/**'
-        - '!releases/**-alpha'
-        - 'hot-fix_**'
+    branches-ignore:
+      - 'master'
+  pull_request:
+    branches:
+      - 'releases/**'
+      - '!releases/**-alpha'
+      - 'hot-fix_**'
 
 jobs:
   golangci-lint:
@@ -28,4 +27,14 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           working-directory: aperta
+          args: --timeout 5m0s --out-${NO_FUTURE}format line-number
+      - name: Run lint on curat service
+        uses: golangci/golangci-lint-action@v2
+        with:
+          working-directory: curat
+          args: --timeout 5m0s --out-${NO_FUTURE}format line-number
+      - name: Run lint on simplex service
+        uses: golangci/golangci-lint-action@v2
+        with:
+          working-directory: simplex
           args: --timeout 5m0s --out-${NO_FUTURE}format line-number
