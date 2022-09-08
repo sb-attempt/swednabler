@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  aperta:
+    image: chetanketh/aperta:latest
+    pull_policy: always
+    hostname: aperta
+    ports:
+      - "8081:8081"
+
+  curat:
+    image: chetanketh/curat:latest
+    pull_policy: always
+    hostname: curat
+    environment:
+      - ApertaServiceHost=aperta
+      - SimplexServiceHost=simplex
+    ports:
+      - "8082:8082"
+
+  simplex:
+    image: chetanketh/simplex:latest
+    pull_policy: always
+    hostname: simplex
+    ports:
+      - "8083:8083"
+
+networks:
+  default:
+    external:
+      name: swednabler_default

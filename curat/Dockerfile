@@ -15,7 +15,6 @@ COPY go.sum go.sum
 # Copy the go source
 COPY main.go main.go
 COPY care/ care/
-COPY data/ data/
 
 # Build
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -a -o curat main.go
@@ -24,7 +23,9 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -a -o curat ma
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
 FROM gcr.io/distroless/static:nonroot
 WORKDIR /
+EXPOSE 8082
 COPY --from=builder /workspace/curat .
+COPY data/ data/
 USER nonroot:nonroot
 
 ENTRYPOINT ["/curat"]

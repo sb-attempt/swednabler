@@ -14,6 +14,9 @@ const (
 )
 
 func init() {
+	// Env variables
+	curat.SimplexServiceHost = os.Getenv("SimplexServiceHost")
+	curat.ApertaServiceHost = os.Getenv("ApertaServiceHost")
 	loadConfiguration(filePath)
 }
 

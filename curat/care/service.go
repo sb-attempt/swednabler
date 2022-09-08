@@ -47,6 +47,9 @@ func (t terminologyService) TerminologyList(ctx context.Context, token string) (
 // If token is expired or invalid then endpoint denies the request.
 func (t terminologyService) ValidateToken(token string) error {
 	//Verify if the token is valid
+	if ApertaServiceHost == "" {
+		ApertaServiceHost = "localhost"
+	}
 	jwtString := strings.Split(token, "Bearer ")[1]
 	requestBody := authorizeRequest{
 		Token: jwtString,
@@ -57,8 +60,7 @@ func (t terminologyService) ValidateToken(token string) error {
 	}
 	body := bytes.NewBuffer(parseJSON)
 	// Call the Aperta service validate endpoint
-	// TODO:  Endpoint can be fetched from configmap? localhost can be the service name
-	resp, err := http.Post("http://localhost:8081/v1/token/validate", "application/json", body)
+	resp, err := http.Post("http://"+ApertaServiceHost+":8081/v1/token/validate", "application/json", body)
 	if err != nil {
 		return errors.New("could not validate token internal server error")
 	}
@@ -77,6 +79,9 @@ func (t terminologyService) ValidateToken(token string) error {
 // It call the simplex service and pass the id as payload, the service returns the simplified response.
 func (t terminologyService) TerminologySimplified(ctx context.Context, token string, id int) (terminologySimplifyResponse, error) {
 	var simpleTerms terminologySimplifyResponse
+	if SimplexServiceHost == "" {
+		SimplexServiceHost = "localhost"
+	}
 	// Validate the token
 	err := t.ValidateToken(token)
 	if err != nil {
@@ -93,7 +98,7 @@ func (t terminologyService) TerminologySimplified(ctx context.Context, token str
 	responseBody := bytes.NewBuffer(parseJSON)
 	// Call Simplex service
 	// TODO:  Endpoint can be fetched from configmap? localhost can be the service name
-	resp, err := http.Post("http://localhost:8083/v1/elaborate", "application/json", responseBody)
+	resp, err := http.Post("http://"+SimplexServiceHost+":8083/v1/elaborate", "application/json", responseBody)
 	if err != nil {
 		return simpleTerms, errors.New("internal server error")
 	}

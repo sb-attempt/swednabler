@@ -1,3 +1,4 @@
+# THis job runs lint on the PR request and block the merge if the lint fails.
 name: golangci-lint
 on:
   push:
