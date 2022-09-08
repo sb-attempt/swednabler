@@ -1,0 +1,26 @@
+# This job runs on PR creation, it will build and test all the services and block merge if they fail
+name: build-test-on-PR
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        service: [ "aperta", "curat", "simplex" ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.19.0'
+
+      - name: Build service
+        run: cd ${{ matrix.service }} && go build -v ./...
+
+      - name: Test service
+        run: cd ${{ matrix.service }}  && go test -v ./...

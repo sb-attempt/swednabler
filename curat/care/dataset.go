@@ -3,6 +3,9 @@ package curat
 // The dataset structs
 var Data DataStruct
 
+var SimplexServiceHost string
+var ApertaServiceHost string
+
 type DataStruct struct {
 	Glossary []struct {
 		ID   int    `json:"id"`
