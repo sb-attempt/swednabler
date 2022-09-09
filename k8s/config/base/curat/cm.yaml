@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: curat-config
+data:
+  ApertaServiceHost: aperta
+  SimplexServiceHost: simplex

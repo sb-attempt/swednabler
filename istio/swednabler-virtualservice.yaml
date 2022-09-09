@@ -1,0 +1,51 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: swednabler
+  namespace: istio-system
+spec:
+  gateways:
+  - swednabler
+    hosts:
+      - '*'
+    http:
+      - match:
+          - uri:
+              prefix: /v1/token
+        route:
+          - destination:
+              host: aperta
+              port:
+                number: 8081
+      - match:
+          - uri:
+              prefix: /v1/token/validate
+        route:
+          - destination:
+              host: aperta
+              port:
+                number: 8081
+      - match:
+          - uri:
+              prefix: /v1/term/list
+        route:
+          - destination:
+              host: curat
+              port:
+                number: 8082
+      - match:
+          - uri:
+              prefix: /v1/term/simplify
+        route:
+          - destination:
+              host: curat
+              port:
+                number: 8082
+      - match:
+          - uri:
+              prefix: /v1/elaborate
+        route:
+          - destination:
+              host: simplex
+              port:
+                number: 8083
