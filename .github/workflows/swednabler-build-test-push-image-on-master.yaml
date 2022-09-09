@@ -1,5 +1,5 @@
 # This job runs when changes are merged to master branch. It will build, test and push images to dockerhub.
-name: Build-test-push-image
+name: swednabler-build-test-push-image-on-master
 on:
   push:
     branches:

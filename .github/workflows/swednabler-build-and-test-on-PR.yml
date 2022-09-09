@@ -1,5 +1,5 @@
 # This job runs on PR creation, it will build and test all the services and block merge if they fail
-name: build-test-on-PR
+name: swednabler-build-and-test-on-PR
 
 on:
   pull_request:

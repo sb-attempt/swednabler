@@ -1,5 +1,5 @@
 # THis job runs lint on the PR request and block the merge if the lint fails.
-name: golangci-lint
+name: swednabler-run-lint-on-master-and-PR
 on:
   push:
     branches-ignore:
