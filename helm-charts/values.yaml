@@ -1,0 +1,20 @@
+### Global Values if any ###
+global: {}
+
+### Sub Charts Specific Values ###
+# Aperta
+aperta:
+  enabled: true
+  image:
+    version:
+# Curat
+curat:
+  enabled: true
+  image:
+    version:
+# Simplex
+simplex:
+  enabled: true
+  image:
+    version:
+
