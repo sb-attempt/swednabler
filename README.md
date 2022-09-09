@@ -1,6 +1,10 @@
 # Swednabler
 
 
+[![swednabler-build-test-push-image-on-master](https://github.com/sb-attempt/swednabler/actions/workflows/swednabler-build-test-push-image-on-master.yaml/badge.svg)](https://github.com/sb-attempt/swednabler/actions/workflows/swednabler-build-test-push-image-on-master.yaml)
+[![swednabler-run-lint-on-master-and-PR](https://github.com/sb-attempt/swednabler/actions/workflows/swednabler-run-lint-on-master-and-PR.yml/badge.svg)](https://github.com/sb-attempt/swednabler/actions/workflows/swednabler-run-lint-on-master-and-PR.yml)
+
+
 Swednabler is a microservice based application written in golang that is based on three core values:
 * Open
 * Caring
@@ -52,6 +56,12 @@ To run and test swednabler locally run the following command
 make build-and-run-swednabler
 ```
 
+or simply ...
+
+```
+docker-compose up -d
+```
+
 ### Install to K8s cluster using Manifests
 
 The services can be installed in the k8s cluster and all the relates k8s configuration is placed in [k8s](./k8s) directory.
@@ -64,6 +74,47 @@ To install the service using Argo, hook the argo application to the [base](./k8s
 
 Swednabler have manifests for Istio as well, and these service can be run on Istio. One benefit of running it on istio is that you get the mutual tls out of the box.
 Install the relates manifest from [Istio](./istio) folder.
+
+
+### Test
+
+You can use curl or postman to verify if application is running fine
+
+* Get the token
+```
+curl --location --request POST 'http://localhost:8081/v1/token' \
+--header 'Content-Type: application/json' \
+--data-raw '{"username":"user1","password":"password1"}'
+```
+
+* Validate token (In the body replace the token you got from the above step)
+```
+curl --location --request POST 'http://localhost:8081/v1/token/validate' \
+--header 'Content-Type: application/json' \
+--data-raw '{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyMSIsImV4cCI6MTY2MjQ3ODg3OH0.Dqdq4F5ca6VORCVwbdrF2aJxkxZbgXCN1p9jipXUmVU"}'
+```
+
+* Fetch terminology list
+```
+curl --location --request GET 'http://localhost:8082/v1/term/list' \
+--header 'Content-Type: application/json; charset=utf-8' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyMSIsImV4cCI6MTY2MjcxODA0MX0.qcFVrlVcUQ94DK65zPg4PKwuWYh6LCbIr2p_uG6LgxQ'
+```
+
+* Simplify the term (Pass any id from above list in the payload to get more information)
+```
+curl --location --request POST 'http://localhost:8082/v1/term/simplify' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyMSIsImV4cCI6MTY2MjcyNjU5NX0.TmRO5ycYLTG7_cpqxUqzkJry-A-KJFQjMhCUzgoACnY' \
+--header 'Content-Type: application/json' \
+--data-raw '{"id":1}'
+```
+
+# Docker Images
+
+All the docker images are pushed to dockerhub in the following repositories:
+* [aperta repository](https://hub.docker.com/repository/docker/chetanketh/aperta)
+* [curat repository](https://hub.docker.com/repository/docker/chetanketh/curat)
+* [simplex repository](https://hub.docker.com/repository/docker/chetanketh/simplex)
 
 ## Contributions
 
